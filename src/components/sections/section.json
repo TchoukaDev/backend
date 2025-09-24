@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_sections_sections",
+  "info": {
+    "displayName": "Section",
+    "icon": "layer"
+  },
+  "options": {},
+  "attributes": {
+    "titre": {
+      "type": "string"
+    },
+    "contenu": {
+      "type": "blocks"
+    }
+  },
+  "config": {}
+}

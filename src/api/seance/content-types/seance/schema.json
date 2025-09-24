@@ -1,0 +1,14 @@
+{
+  "kind": "singleType",
+  "collectionName": "seances",
+  "info": {
+    "singularName": "seance",
+    "pluralName": "seances",
+    "displayName": "Séance"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {}
+}
