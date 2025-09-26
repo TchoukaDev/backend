@@ -7,8 +7,28 @@
     "displayName": "Séance"
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
-  "attributes": {}
+  "attributes": {
+    "titreprincipal": {
+      "type": "string"
+    },
+    "titre1": {
+      "type": "string"
+    },
+    "tableau": {
+      "type": "component",
+      "component": "tableau.tableau",
+      "repeatable": true
+    },
+    "titre2": {
+      "type": "string"
+    },
+    "pdf": {
+      "type": "component",
+      "component": "pdf.pdf",
+      "repeatable": true
+    }
+  }
 }

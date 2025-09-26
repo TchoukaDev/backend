@@ -1,5 +1,18 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface PdfPdf extends Struct.ComponentSchema {
+  collectionName: 'components_pdf_pdfs';
+  info: {
+    displayName: 'PDF';
+    icon: 'folder';
+  };
+  attributes: {
+    pdf: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Schema.Attribute.Required;
+    titre: Schema.Attribute.String;
+  };
+}
+
 export interface SectionsSection extends Struct.ComponentSchema {
   collectionName: 'components_sections_sections';
   info: {
@@ -74,15 +87,42 @@ export interface SharedSlider extends Struct.ComponentSchema {
   };
 }
 
+export interface TableauTableau extends Struct.ComponentSchema {
+  collectionName: 'components_tableau_tableaus';
+  info: {
+    displayName: 'Tableau';
+  };
+  attributes: {
+    commentaire: Schema.Attribute.String;
+    dates: Schema.Attribute.String;
+    dimanche1: Schema.Attribute.String;
+    dimanche2: Schema.Attribute.String;
+    jeudi1: Schema.Attribute.String;
+    jeudi2: Schema.Attribute.String;
+    lundi1: Schema.Attribute.String;
+    lundi2: Schema.Attribute.String;
+    mardi1: Schema.Attribute.String;
+    mardi2: Schema.Attribute.String;
+    mercredi1: Schema.Attribute.String;
+    mercredi2: Schema.Attribute.String;
+    samedi1: Schema.Attribute.String;
+    samedi2: Schema.Attribute.String;
+    vendredi1: Schema.Attribute.String;
+    vendredi2: Schema.Attribute.String;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'pdf.pdf': PdfPdf;
       'sections.section': SectionsSection;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;
       'shared.slider': SharedSlider;
+      'tableau.tableau': TableauTableau;
     }
   }
 }

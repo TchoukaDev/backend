@@ -1,0 +1,58 @@
+{
+  "collectionName": "components_tableau_tableaus",
+  "info": {
+    "displayName": "Tableau"
+  },
+  "options": {},
+  "attributes": {
+    "dates": {
+      "type": "string"
+    },
+    "lundi1": {
+      "type": "string"
+    },
+    "lundi2": {
+      "type": "string"
+    },
+    "mardi1": {
+      "type": "string"
+    },
+    "mardi2": {
+      "type": "string"
+    },
+    "mercredi1": {
+      "type": "string"
+    },
+    "mercredi2": {
+      "type": "string"
+    },
+    "jeudi1": {
+      "type": "string"
+    },
+    "jeudi2": {
+      "type": "string"
+    },
+    "vendredi1": {
+      "type": "string"
+    },
+    "vendredi2": {
+      "type": "string"
+    },
+    "samedi1": {
+      "type": "string"
+    },
+    "samedi2": {
+      "type": "string"
+    },
+    "dimanche1": {
+      "type": "string"
+    },
+    "dimanche2": {
+      "type": "string"
+    },
+    "commentaire": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

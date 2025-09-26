@@ -430,6 +430,38 @@ export interface ApiClubClub extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiGalerieGalerie extends Struct.SingleTypeSchema {
+  collectionName: 'galeries';
+  info: {
+    displayName: 'Galerie';
+    pluralName: 'galeries';
+    singularName: 'galerie';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::galerie.galerie'
+    > &
+      Schema.Attribute.Private;
+    photos: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    titreprincipal: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   collectionName: 'globals';
   info: {
@@ -499,7 +531,7 @@ export interface ApiSeanceSeance extends Struct.SingleTypeSchema {
     singularName: 'seance';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
@@ -511,7 +543,12 @@ export interface ApiSeanceSeance extends Struct.SingleTypeSchema {
       'api::seance.seance'
     > &
       Schema.Attribute.Private;
+    pdf: Schema.Attribute.Component<'pdf.pdf', true>;
     publishedAt: Schema.Attribute.DateTime;
+    tableau: Schema.Attribute.Component<'tableau.tableau', true>;
+    titre1: Schema.Attribute.String;
+    titre2: Schema.Attribute.String;
+    titreprincipal: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1029,6 +1066,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
       'api::club.club': ApiClubClub;
+      'api::galerie.galerie': ApiGalerieGalerie;
       'api::global.global': ApiGlobalGlobal;
       'api::marche-aquatique.marche-aquatique': ApiMarcheAquatiqueMarcheAquatique;
       'api::seance.seance': ApiSeanceSeance;

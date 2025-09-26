@@ -1,9 +1,16 @@
-'use strict';
+"use strict";
 
 /**
  * seance router
  */
 
-const { createCoreRouter } = require('@strapi/strapi').factories;
-
-module.exports = createCoreRouter('api::seance.seance');
+module.exports = {
+  routes: [
+    {
+      method: "GET",
+      path: "/seance/optimized",
+      handler: "seance.find",
+      config: { auth: false },
+    },
+  ],
+};
