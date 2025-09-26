@@ -1,9 +1,14 @@
-'use strict';
+"use strict";
 
-/**
- * galerie router
- */
-
-const { createCoreRouter } = require('@strapi/strapi').factories;
-
-module.exports = createCoreRouter('api::galerie.galerie');
+module.exports = {
+  routes: [
+    {
+      method: "GET",
+      path: "/galerie/optimized",
+      handler: "galerie.find", // utilise ton controller custom
+      config: {
+        auth: false,
+      },
+    },
+  ],
+};

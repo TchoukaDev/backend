@@ -17,7 +17,7 @@ module.exports = createCoreController(
           select: ["titreprincipal"],
         });
 
-      return entry || [];
+      return entry;
     },
   }),
 );
