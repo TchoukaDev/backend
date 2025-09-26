@@ -11,6 +11,10 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "titreprincipal": {
+      "type": "string",
+      "required": true
+    },
     "titre1": {
       "type": "string"
     },

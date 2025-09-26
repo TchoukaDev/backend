@@ -14,12 +14,10 @@ module.exports = createCoreController(
         .query("api::marche-aquatique.marche-aquatique")
         .findOne({
           populate: { sections: { select: ["id", "titre", "contenu"] } },
-          select: [],
+          select: ["titreprincipal"],
         });
 
-      const data = entry?.sections || [];
-
-      return data;
+      return entry || [];
     },
   }),
 );

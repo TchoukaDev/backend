@@ -424,6 +424,7 @@ export interface ApiClubClub extends Struct.SingleTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     titre1: Schema.Attribute.String;
     titre2: Schema.Attribute.String;
+    titreprincipal: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -455,7 +456,7 @@ export interface ApiGalerieGalerie extends Struct.SingleTypeSchema {
       true
     >;
     publishedAt: Schema.Attribute.DateTime;
-    titreprincipal: Schema.Attribute.String;
+    titreprincipal: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -494,6 +495,32 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiInfoInfo extends Struct.SingleTypeSchema {
+  collectionName: 'infos';
+  info: {
+    displayName: 'Info';
+    pluralName: 'infos';
+    singularName: 'info';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    article: Schema.Attribute.Component<'article.article', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::info.info'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    titreprincipal: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiMarcheAquatiqueMarcheAquatique
   extends Struct.SingleTypeSchema {
   collectionName: 'marche_aquatiques';
@@ -517,6 +544,7 @@ export interface ApiMarcheAquatiqueMarcheAquatique
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     sections: Schema.Attribute.Component<'sections.section', true>;
+    titreprincipal: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1068,6 +1096,7 @@ declare module '@strapi/strapi' {
       'api::club.club': ApiClubClub;
       'api::galerie.galerie': ApiGalerieGalerie;
       'api::global.global': ApiGlobalGlobal;
+      'api::info.info': ApiInfoInfo;
       'api::marche-aquatique.marche-aquatique': ApiMarcheAquatiqueMarcheAquatique;
       'api::seance.seance': ApiSeanceSeance;
       'plugin::content-releases.release': PluginContentReleasesRelease;

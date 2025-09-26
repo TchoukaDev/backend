@@ -18,7 +18,7 @@ module.exports = createCoreController("api::club.club", ({ strapi }) => ({
           },
         },
       },
-      select: ["titre1", "contenu", "titre2"],
+      select: ["titre1", "contenu", "titre2", "titreprincipal"],
     });
 
     return entry || [];

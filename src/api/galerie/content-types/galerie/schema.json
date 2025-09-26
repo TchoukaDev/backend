@@ -12,7 +12,8 @@
   "pluginOptions": {},
   "attributes": {
     "titreprincipal": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "photos": {
       "type": "media",

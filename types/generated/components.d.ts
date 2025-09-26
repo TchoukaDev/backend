@@ -1,5 +1,18 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface ArticleArticle extends Struct.ComponentSchema {
+  collectionName: 'components_article_articles';
+  info: {
+    displayName: 'Article';
+  };
+  attributes: {
+    contenu: Schema.Attribute.Blocks;
+    document: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    titre: Schema.Attribute.String;
+  };
+}
+
 export interface PdfPdf extends Struct.ComponentSchema {
   collectionName: 'components_pdf_pdfs';
   info: {
@@ -115,6 +128,7 @@ export interface TableauTableau extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'article.article': ArticleArticle;
       'pdf.pdf': PdfPdf;
       'sections.section': SectionsSection;
       'shared.media': SharedMedia;
