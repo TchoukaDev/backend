@@ -20,7 +20,7 @@ module.exports = createCoreController("api::seance.seance", ({ strapi }) => ({
       },
       select: ["titre1", "titre2", "titreprincipal"],
     });
-    console.log(entry);
+
     return entry || [];
   },
 }));
