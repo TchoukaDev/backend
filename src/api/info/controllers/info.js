@@ -31,16 +31,16 @@ module.exports = createCoreController("api::info.info", ({ strapi }) => ({
   },
 
   async findOne(ctx) {
-    const { id } = ctx.params;
+    const slug = ctx.params.id; //Strapi utilise toujours par défaut id dans la route fin one (/infos/:id)
 
     const entry = await strapi.db.query("api::info.info").findOne({
-      where: { id },
+      where: { slug },
       populate: {
         images: {
           select: ["id", "url", "alternativeText"],
         },
-        document: {
-          select: ["id", "url", "caption", "name", "size"],
+        documents: {
+          select: ["id", "url", "caption", "name"],
         },
       },
       select: ["id", "titre", "slug", "contenu", "createdAt", "updatedAt"],
@@ -50,6 +50,6 @@ module.exports = createCoreController("api::info.info", ({ strapi }) => ({
       return ctx.notFound("Info non trouvée");
     }
 
-    return entry;
+    return { data: entry, meta: {} };
   },
 }));
