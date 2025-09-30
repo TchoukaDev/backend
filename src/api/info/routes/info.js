@@ -1,9 +1,20 @@
-'use strict';
-
-/**
- * info router
- */
-
-const { createCoreRouter } = require('@strapi/strapi').factories;
-
-module.exports = createCoreRouter('api::info.info');
+module.exports = {
+  routes: [
+    {
+      method: "GET",
+      path: "/infos",
+      handler: "info.find",
+      config: {
+        auth: false,
+      },
+    },
+    {
+      method: "GET",
+      path: "/infos/:slug",
+      handler: "info.findBySlug",
+      config: {
+        auth: false,
+      },
+    },
+  ],
+};

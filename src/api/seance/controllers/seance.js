@@ -15,8 +15,8 @@ module.exports = createCoreController("api::seance.seance", ({ strapi }) => ({
           populate: {
             pdf: {
               select: ["url", "alternativeText"],
-              orderBy: { order: "asc" },
             },
+            orderBy: { order: "asc" },
           },
           select: ["titre"],
         },

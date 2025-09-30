@@ -18,7 +18,8 @@
     "slug": {
       "type": "uid",
       "targetField": "titre",
-      "required": true
+      "required": true,
+      "maxLength": 20
     },
     "contenu": {
       "type": "blocks",

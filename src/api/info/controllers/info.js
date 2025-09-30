@@ -1,10 +1,8 @@
 "use strict";
-
 const { createCoreController } = require("@strapi/strapi").factories;
 
 module.exports = createCoreController("api::info.info", ({ strapi }) => ({
   async find(ctx) {
-    // URL minimale : ?page=2&limit=5 au lieu de pagination[page]=2&pagination[pageSize]=5
     const page = parseInt(ctx.query.page) || 1;
     const limit = parseInt(ctx.query.limit) || 5;
 
@@ -30,8 +28,8 @@ module.exports = createCoreController("api::info.info", ({ strapi }) => ({
     };
   },
 
-  async findOne(ctx) {
-    const slug = ctx.params.id; //Strapi utilise toujours par défaut id dans la route fin one (/infos/:id)
+  async findBySlug(ctx) {
+    const { slug } = ctx.params;
 
     const entry = await strapi.db.query("api::info.info").findOne({
       where: { slug },
