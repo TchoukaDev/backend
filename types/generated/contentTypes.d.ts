@@ -519,7 +519,7 @@ export interface ApiInfoInfo extends Struct.CollectionTypeSchema {
     slug: Schema.Attribute.UID<'titre'> &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMaxLength<{
-        maxLength: 20;
+        maxLength: 80;
       }>;
     titre: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
