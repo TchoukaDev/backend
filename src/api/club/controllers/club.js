@@ -15,6 +15,7 @@ module.exports = createCoreController("api::club.club", ({ strapi }) => ({
             file: {
               select: ["id", "url", "alternativeText", "caption"],
             },
+            orderBy: { order: "asc" },
           },
         },
       },

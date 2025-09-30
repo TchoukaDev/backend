@@ -13,7 +13,10 @@ module.exports = createCoreController(
       const entry = await strapi.db
         .query("api::marche-aquatique.marche-aquatique")
         .findOne({
-          populate: { sections: { select: ["id", "titre", "contenu"] } },
+          populate: {
+            sections: { select: ["id", "titre", "contenu"] },
+            orderBy: { order: "asc" },
+          },
           select: ["titreprincipal"],
         });
 

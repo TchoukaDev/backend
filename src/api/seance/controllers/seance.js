@@ -13,10 +13,14 @@ module.exports = createCoreController("api::seance.seance", ({ strapi }) => ({
         tableau: true,
         pdf: {
           populate: {
-            pdf: ["url", "alternativeText"],
+            pdf: {
+              select: ["url", "alternativeText"],
+              orderBy: { order: "asc" },
+            },
           },
           select: ["titre"],
         },
+        orderBy: { order: "asc" },
       },
       select: ["titre1", "titre2", "titreprincipal"],
     });
