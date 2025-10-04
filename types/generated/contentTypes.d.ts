@@ -496,6 +496,34 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiAccueilAccueil extends Struct.SingleTypeSchema {
+  collectionName: 'accueils';
+  info: {
+    displayName: 'Accueil';
+    pluralName: 'accueils';
+    singularName: 'accueil';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::accueil.accueil'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiClubClub extends Struct.SingleTypeSchema {
   collectionName: 'clubs';
   info: {
@@ -519,6 +547,38 @@ export interface ApiClubClub extends Struct.SingleTypeSchema {
     titre1: Schema.Attribute.String;
     titre2: Schema.Attribute.String;
     titreprincipal: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCompetitionCompetition extends Struct.CollectionTypeSchema {
+  collectionName: 'competitions';
+  info: {
+    displayName: 'Competitions';
+    pluralName: 'competitions';
+    singularName: 'competition';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    contenu: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    documents: Schema.Attribute.Media<'files', true>;
+    images: Schema.Attribute.Media<'images' | 'videos' | 'audios', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::competition.competition'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'titre'>;
+    titre: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1198,7 +1258,9 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
+      'api::accueil.accueil': ApiAccueilAccueil;
       'api::club.club': ApiClubClub;
+      'api::competition.competition': ApiCompetitionCompetition;
       'api::galerie.galerie': ApiGalerieGalerie;
       'api::global.global': ApiGlobalGlobal;
       'api::info.info': ApiInfoInfo;

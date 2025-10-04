@@ -10,7 +10,10 @@ module.exports = {
       method: "GET",
       path: "/seances/optimized",
       handler: "seance.find",
-      config: { auth: false },
+      config: {
+        auth: false,
+        policies: ["global::require-api-token"],
+      },
     },
   ],
 };

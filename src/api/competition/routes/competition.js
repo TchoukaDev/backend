@@ -2,8 +2,8 @@ module.exports = {
   routes: [
     {
       method: "GET",
-      path: "/infos",
-      handler: "info.find",
+      path: "/competitions",
+      handler: "competition.find",
       config: {
         auth: false,
         policies: ["global::require-api-token"],
@@ -11,8 +11,8 @@ module.exports = {
     },
     {
       method: "GET",
-      path: "/infos/:slug",
-      handler: "info.findBySlug",
+      path: "/competitions/:slug",
+      handler: "competition.findBySlug",
       config: {
         auth: false,
         policies: ["global::require-api-token"],

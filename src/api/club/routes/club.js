@@ -12,6 +12,7 @@ module.exports = {
       handler: "club.find", // utilise ton controller custom
       config: {
         auth: false,
+        policies: ["global::require-api-token"],
       },
     },
   ],

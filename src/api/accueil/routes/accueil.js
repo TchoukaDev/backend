@@ -1,11 +1,15 @@
 "use strict";
 
+/**
+ * accueil router
+ */
+
 module.exports = {
   routes: [
     {
       method: "GET",
-      path: "/marche-aquatique/optimized",
-      handler: "marche-aquatique.find", // utilise ton controller custom
+      path: "/accueil/optimized",
+      handler: "accueil.find",
       config: {
         auth: false,
         policies: ["global::require-api-token"],
