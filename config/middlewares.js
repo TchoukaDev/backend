@@ -20,7 +20,11 @@ module.exports = [
             "blob:",
             "https://res.cloudinary.com",
           ],
-          "frame-ancestors": ["'self'", "http://localhost:3000"],
+          "frame-ancestors": [
+            "'self'",
+            "http://localhost:3000",
+            "https://les-randonneurs-des-sables.vercel.app/",
+          ],
           upgradeInsecureRequests: null,
         },
       },
