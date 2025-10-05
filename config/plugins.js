@@ -5,7 +5,7 @@ module.exports = ({ env }) => ({
         allowedFields: ["name", "firstname", "telephone"],
       },
     },
-  },
+  }, //Ajouter le provider cloudinary pour gérer l'upload sur cloudinary
   upload: {
     config: {
       provider: "cloudinary",
