@@ -13,17 +13,16 @@ module.exports = ({ env }) => ({
         cloud_name: env("CLOUDINARY_NAME"),
         api_key: env("CLOUDINARY_KEY"),
         api_secret: env("CLOUDINARY_SECRET"),
+        secure: true,
       },
       actionOptions: {
         upload: {
           folder: env("CLOUDINARY_FOLDER", "strapi"),
-          use_filename: true,
-          unique_filename: false,
+          resource_type: "auto",
         },
         uploadStream: {
           folder: env("CLOUDINARY_FOLDER", "strapi"),
-          use_filename: true,
-          unique_filename: false,
+          resource_type: "auto",
         },
         delete: {},
       },

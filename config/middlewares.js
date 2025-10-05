@@ -20,6 +20,12 @@ module.exports = [
             "blob:",
             "https://res.cloudinary.com",
           ],
+          "script-src": [
+            "'self'",
+            "'unsafe-inline'",
+            "https://cdnjs.cloudflare.com",
+          ],
+          "worker-src": ["'self'", "blob:"],
           "frame-ancestors": [
             "'self'",
             "http://localhost:3000",

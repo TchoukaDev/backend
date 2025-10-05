@@ -36,6 +36,9 @@
       "type": "media",
       "multiple": true,
       "allowedTypes": [
+        "images",
+        "videos",
+        "audios",
         "files"
       ]
     }
