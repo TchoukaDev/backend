@@ -35,15 +35,21 @@ module.exports = ({ env }) => {
         port: env.int("DATABASE_PORT", 5432),
         database: env("DATABASE_NAME", "postgres"),
         user: env("DATABASE_USERNAME", "postgres"),
-        password: env("DATABASE_PASSWORD", "TON_MOT_DE_PASSE"),
+        password: env("DATABASE_PASSWORD", "postgres"),
         ssl: {
-          rejectUnauthorized: false, // ← important pour Supabase
+          rejectUnauthorized: false,
         },
         schema: env("DATABASE_SCHEMA", "public"),
       },
       pool: {
         min: env.int("DATABASE_POOL_MIN", 2),
         max: env.int("DATABASE_POOL_MAX", 10),
+        acquireTimeoutMillis: 30000,
+        createTimeoutMillis: 30000,
+        destroyTimeoutMillis: 5000,
+        idleTimeoutMillis: 30000,
+        reapIntervalMillis: 1000,
+        createRetryIntervalMillis: 100,
       },
     },
     sqlite: {
