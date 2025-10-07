@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "competitions",
+  "collectionName": "section_animateurs",
   "info": {
-    "singularName": "competition",
-    "pluralName": "competitions",
-    "displayName": "Competitions"
+    "singularName": "section-animateur",
+    "pluralName": "section-animateurs",
+    "displayName": "Section Animateur"
   },
   "options": {
     "draftAndPublish": false
@@ -12,8 +12,7 @@
   "pluginOptions": {},
   "attributes": {
     "titre": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "slug": {
       "type": "uid",
@@ -22,14 +21,14 @@
       "maxLength": 80
     },
     "contenu": {
-      "type": "blocks",
-      "required": true
+      "type": "blocks"
     },
     "images": {
       "type": "media",
       "multiple": true,
       "allowedTypes": [
         "images",
+        "files",
         "videos",
         "audios"
       ]
@@ -39,9 +38,9 @@
       "multiple": true,
       "allowedTypes": [
         "images",
+        "files",
         "videos",
-        "audios",
-        "files"
+        "audios"
       ]
     }
   }

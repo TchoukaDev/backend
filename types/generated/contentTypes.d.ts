@@ -523,7 +523,11 @@ export interface ApiCompetitionCompetition extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID<'titre'>;
+    slug: Schema.Attribute.UID<'titre'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 80;
+      }>;
     titre: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -687,6 +691,49 @@ export interface ApiSeanceSeance extends Struct.SingleTypeSchema {
     titre1: Schema.Attribute.String;
     titre2: Schema.Attribute.String;
     titreprincipal: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSectionAnimateurSectionAnimateur
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'section_animateurs';
+  info: {
+    displayName: 'Section Animateur';
+    pluralName: 'section-animateurs';
+    singularName: 'section-animateur';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    contenu: Schema.Attribute.Blocks;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    documents: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    images: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::section-animateur.section-animateur'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'titre'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 80;
+      }>;
+    titre: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1214,6 +1261,7 @@ declare module '@strapi/strapi' {
       'api::info.info': ApiInfoInfo;
       'api::marche-aquatique.marche-aquatique': ApiMarcheAquatiqueMarcheAquatique;
       'api::seance.seance': ApiSeanceSeance;
+      'api::section-animateur.section-animateur': ApiSectionAnimateurSectionAnimateur;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

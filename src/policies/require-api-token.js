@@ -14,7 +14,6 @@ module.exports = async (policyContext, config, { strapi }) => {
 
   // Comparer avec le token de l'env
   const expectedToken = process.env.STRAPI_API_TOKEN;
-  console.log(expectedToken);
 
   if (token === expectedToken) {
     return true; // ✅ Autorisé
