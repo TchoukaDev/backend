@@ -13,7 +13,7 @@ module.exports = createCoreController("api::club.club", ({ strapi }) => ({
         animateurs: {
           populate: {
             file: {
-              select: ["id", "url", "alternativeText", "caption"],
+              select: ["id", "url", "formats", "alternativeText", "caption"],
             },
             orderBy: { order: "asc" },
           },
