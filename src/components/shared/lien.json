@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_liens",
+  "info": {
+    "displayName": "Lien",
+    "icon": "globe"
+  },
+  "options": {},
+  "attributes": {
+    "nom": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}

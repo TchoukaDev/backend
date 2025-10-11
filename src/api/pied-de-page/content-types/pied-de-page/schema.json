@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "pied_de_pages",
+  "info": {
+    "singularName": "pied-de-page",
+    "pluralName": "pied-de-pages",
+    "displayName": "Pied de page"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titre1": {
+      "type": "string"
+    },
+    "titre2": {
+      "type": "string"
+    },
+    "liens1": {
+      "type": "component",
+      "component": "shared.lien",
+      "repeatable": true
+    },
+    "liens2": {
+      "type": "component",
+      "component": "shared.lien",
+      "repeatable": true
+    }
+  }
+}

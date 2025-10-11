@@ -25,6 +25,18 @@ export interface SectionsSection extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedLien extends Struct.ComponentSchema {
+  collectionName: 'components_shared_liens';
+  info: {
+    displayName: 'Lien';
+    icon: 'globe';
+  };
+  attributes: {
+    nom: Schema.Attribute.String & Schema.Attribute.Required;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -117,6 +129,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'pdf.pdf': PdfPdf;
       'sections.section': SectionsSection;
+      'shared.lien': SharedLien;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;

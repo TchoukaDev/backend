@@ -19,6 +19,7 @@
     "@strapi/admin": "^5.23.6",
     "@strapi/plugin-cloud": "5.23.6",
     "@strapi/plugin-users-permissions": "5.23.6",
+    "@strapi/provider-email-nodemailer": "^5.27.0",
     "@strapi/provider-upload-cloudinary": "^5.25.0",
     "@strapi/strapi": "5.23.6",
     "fs-extra": "^10.0.0",
@@ -28,6 +29,7 @@
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.0.0",
     "strapi": "^3.6.11",
+    "strapi-provider-email-resend": "^1.0.4",
     "styled-components": "^6.0.0"
   },
   "engines": {

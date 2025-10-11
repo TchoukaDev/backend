@@ -665,6 +665,37 @@ export interface ApiMarcheAquatiqueMarcheAquatique
   };
 }
 
+export interface ApiPiedDePagePiedDePage extends Struct.SingleTypeSchema {
+  collectionName: 'pied_de_pages';
+  info: {
+    displayName: 'Pied de page';
+    pluralName: 'pied-de-pages';
+    singularName: 'pied-de-page';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    liens1: Schema.Attribute.Component<'shared.lien', true>;
+    liens2: Schema.Attribute.Component<'shared.lien', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pied-de-page.pied-de-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    titre1: Schema.Attribute.String;
+    titre2: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiSeanceSeance extends Struct.SingleTypeSchema {
   collectionName: 'seances';
   info: {
@@ -709,7 +740,7 @@ export interface ApiSectionAnimateurSectionAnimateur
     draftAndPublish: false;
   };
   attributes: {
-    contenu: Schema.Attribute.Blocks;
+    contenu: Schema.Attribute.Blocks & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -733,7 +764,7 @@ export interface ApiSectionAnimateurSectionAnimateur
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 80;
       }>;
-    titre: Schema.Attribute.String;
+    titre: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1260,6 +1291,7 @@ declare module '@strapi/strapi' {
       'api::global.global': ApiGlobalGlobal;
       'api::info.info': ApiInfoInfo;
       'api::marche-aquatique.marche-aquatique': ApiMarcheAquatiqueMarcheAquatique;
+      'api::pied-de-page.pied-de-page': ApiPiedDePagePiedDePage;
       'api::seance.seance': ApiSeanceSeance;
       'api::section-animateur.section-animateur': ApiSectionAnimateurSectionAnimateur;
       'plugin::content-releases.release': PluginContentReleasesRelease;

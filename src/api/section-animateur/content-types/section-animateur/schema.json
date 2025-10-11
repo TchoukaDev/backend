@@ -12,7 +12,8 @@
   "pluginOptions": {},
   "attributes": {
     "titre": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "slug": {
       "type": "uid",
@@ -21,7 +22,8 @@
       "maxLength": 80
     },
     "contenu": {
-      "type": "blocks"
+      "type": "blocks",
+      "required": true
     },
     "images": {
       "type": "media",
