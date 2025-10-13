@@ -1240,12 +1240,14 @@ export interface PluginUsersPermissionsUser
         minLength: 6;
       }>;
     firstname: Schema.Attribute.String & Schema.Attribute.Required;
+    lastFailedLogin: Schema.Attribute.DateTime;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'plugin::users-permissions.user'
     > &
       Schema.Attribute.Private;
+    loginAttempts: Schema.Attribute.Integer;
     name: Schema.Attribute.String & Schema.Attribute.Required;
     password: Schema.Attribute.Password &
       Schema.Attribute.Private &

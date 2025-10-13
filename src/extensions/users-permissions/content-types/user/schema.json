@@ -66,6 +66,12 @@
       "inversedBy": "users",
       "configurable": false
     },
+    "loginAttempts": {
+      "type": "integer"
+    },
+    "lastFailedLogin": {
+      "type": "datetime"
+    },
     "name": {
       "type": "string",
       "required": true
