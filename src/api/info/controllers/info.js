@@ -3,8 +3,9 @@ const { createCoreController } = require("@strapi/strapi").factories;
 
 module.exports = createCoreController("api::info.info", ({ strapi }) => ({
   async find(ctx) {
-    const page = parseInt(ctx.query.page) || 1;
-    const limit = parseInt(ctx.query.limit) || 5;
+    const page = Math.max(parseInt(ctx.query.page) || 1, 1); // Min 1
+    const requestedLimit = parseInt(ctx.query.limit) || 5;
+    const limit = Math.min(Math.max(requestedLimit, 1), 100); // Entre 1 et 100
 
     const entries = await strapi.db.query("api::info.info").findMany({
       select: ["id", "titre", "slug", "contenu", "updatedAt"],

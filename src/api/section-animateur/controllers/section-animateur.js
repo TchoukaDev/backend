@@ -29,8 +29,9 @@ module.exports = createCoreController(
        * @returns {number} meta.pagination.pageCount - Nombre total de pages
        * @returns {number} meta.pagination.total - Nombre total d'éléments */
 
-      const page = parseInt(ctx.query.page) || 1;
-      const limit = parseInt(ctx.query.limit) || 5;
+      const page = Math.max(parseInt(ctx.query.page) || 1, 1); // Min 1
+      const requestedLimit = parseInt(ctx.query.limit) || 5;
+      const limit = Math.min(Math.max(requestedLimit, 1), 100); // Entre 1 et 100
 
       const entries = await strapi.db
         .query("api::section-animateur.section-animateur")
