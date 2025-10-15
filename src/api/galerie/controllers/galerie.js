@@ -32,7 +32,7 @@ module.exports = createCoreController("api::galerie.galerie", ({ strapi }) => ({
       // Récupération de la galerie depuis la base de données
       const entry = await strapi.db.query("api::galerie.galerie").findOne({
         populate: {
-          photos: { select: ["id", "url", "alternativeText"] },
+          photos: { select: ["id", "url", "alternativeText", "caption"] },
         },
         select: ["titreprincipal"],
       });
