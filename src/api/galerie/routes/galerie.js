@@ -4,7 +4,7 @@ module.exports = {
   routes: [
     {
       method: "GET",
-      path: "/galerie/optimized",
+      path: "/galerie",
       handler: "galerie.find", // utilise ton controller custom
       config: {
         auth: false,
