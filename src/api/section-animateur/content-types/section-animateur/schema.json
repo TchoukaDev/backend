@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "section_animateurs",
+  "info": {
+    "singularName": "section-animateur",
+    "pluralName": "section-animateurs",
+    "displayName": "Section Animateur"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titre": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "titre",
+      "required": true,
+      "maxLength": 80
+    },
+    "contenu": {
+      "type": "blocks",
+      "required": true
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "documents": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "kind": "singleType",
+  "collectionName": "seances",
+  "info": {
+    "singularName": "seance",
+    "pluralName": "seances",
+    "displayName": "Séance"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titreprincipal": {
+      "type": "string"
+    },
+    "titre1": {
+      "type": "string"
+    },
+    "tableau": {
+      "type": "component",
+      "component": "tableau.tableau",
+      "repeatable": true
+    },
+    "titre2": {
+      "type": "string"
+    },
+    "pdf": {
+      "type": "component",
+      "component": "pdf.pdf",
+      "repeatable": true
+    }
+  }
+}

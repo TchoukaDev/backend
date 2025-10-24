@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "clubs",
+  "info": {
+    "singularName": "club",
+    "pluralName": "clubs",
+    "displayName": "Club"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titreprincipal": {
+      "type": "string",
+      "required": true
+    },
+    "titre1": {
+      "type": "string"
+    },
+    "contenu": {
+      "type": "blocks"
+    },
+    "titre2": {
+      "type": "string"
+    },
+    "animateurs": {
+      "type": "component",
+      "component": "shared.media",
+      "repeatable": true
+    }
+  }
+}

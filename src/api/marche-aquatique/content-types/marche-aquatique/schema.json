@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "marche_aquatiques",
+  "info": {
+    "singularName": "marche-aquatique",
+    "pluralName": "marche-aquatiques",
+    "displayName": "Marche Aquatique"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titreprincipal": {
+      "type": "string",
+      "required": true
+    },
+    "sections": {
+      "type": "component",
+      "component": "sections.section",
+      "repeatable": true
+    }
+  }
+}

@@ -1,61 +1,67 @@
-# 🚀 Getting started with Strapi
+# Site Les Randonneurs des Sables du Born
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
+## Introduction
 
-### `develop`
+Ce site a été réalisé à la demande du responsable du club de marche aquatique de la ville de Biscarrosse. La partie front a été réalisée avec NextJS et Tailwind CSS et le contenu est géré est modifiable via Strapi. Ce site est majoritairement accessible au grand public, et contient une partie réservée aux membres connectés.
 
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-develop)
+## Stack :
 
-```
-npm run develop
-# or
-yarn develop
-```
+### Frontend :
 
-### `start`
+·      NextJS
 
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-start)
+·      Tailwind CSS
 
-```
-npm run start
-# or
-yarn start
-```
+### Backend :
 
-### `build`
+·      NextJS (API route)
 
-Build your admin panel. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-build)
+·      STRAPI (gestion de contenu)
 
-```
-npm run build
-# or
-yarn build
-```
+·      Supabase POSTGRESQL (base de données)
 
-## ⚙️ Deployment
+·      Cloudinary (hébergement des images)
 
-Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
+#### Dépendances utilisées :
 
-```
-yarn strapi deploy
-```
+·      Zod resolver (validation formulaires)
 
-## 📚 Learn more
+·      React-email + Resend (envoi d’email de contact)
 
-- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
-- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
-- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
-- [Strapi blog](https://strapi.io/blog) - Official Strapi blog containing articles made by the Strapi team and the community.
-- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
+·      Pdfjs-dist (affichage PDF thumbnail)
 
-Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
+·      Block-React-Renderer (affichage du rich text Strapi)
 
-## ✨ Community
+·      Tailwindcss
 
-- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
-- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
-- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
+·      Tanstack query (cache client)
 
----
+·      Framer-motion (animations)
 
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+·      Js-cookies (gestion des cookies)
+
+·      Lucide-react (icônes)
+
+·      Tailwind-css (design)
+
+·      React-spinners (loaders)
+
+·      React-hook-form (formulaires)
+
+·      Next-auth(authentification, session, jwt)
+
+## Gestion de contenu :
+
+L’essentiel du contenu du site est modifiable via l’interface administrateur de Strapi. L’utilisateur peut ainsi mettre à jour les informations des différentes pages, créer, supprimer ou modifier des articles, publications ou images de la galerie. Il peut également ajouter des documents dans les publications. Le système de publication est paginé, avec un sélecteur de nombre d’article par page. Les liens du Footer sont également personnalisables.
+
+## Authentification :
+
+Le site comporte une fonctionnalité d’inscription et d’authentification. Une grande partie du contenu est accessible, mais certaines sections sont réservées pour les membres inscrits, ou certains membres avec un rôle spécifique. L’administrateur peut gérer les rôles des comptes dans Strapi directement. L’authentification est gérée via Next-Auth avec une stratégie de jwt par utilisateur, renouvelé régulièrement. A la connexion, l’utilisateur peut choisir de générer un cookie de 30 jours pour conserver son état de connexion (via la checkbox « se souvenir de moi »). Les chemins publics et protégés sont gérés par un fichier middleware. Il est possible pour l’utilisateur de réinitialiser son mot de passe en cas d’oubli. Un système de blocage de compte est également intégré en cas d’échec répété de connexion.
+
+## Optimisation :
+
+Les performances du site sont optimisées afin d’offrir une bonne expérience utilisateur. La plupart des pages sont générées au build et revalidées à intervalle régulier (via l’Incremental Static Generation). Un cache est également mis en place sur chaque page côté client, via Tanstack Query pour limiter les requêtes.
+
+Les images sont hébergées sur Cloudinary, pour conserver une meilleure performance dans Strapi, et l’affichage est optimisé via le composant natif Image de NextJs.
+
+Niveau SEO, chacune des pages comporte des metadonnées personnalisées afin d’améliorer le référencement sur les moteurs de recherches.
