@@ -438,6 +438,47 @@ export interface ApiAccueilAccueil extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiBoutiqueBoutique extends Struct.CollectionTypeSchema {
+  collectionName: 'boutiques';
+  info: {
+    displayName: 'Boutique';
+    pluralName: 'boutiques';
+    singularName: 'boutique';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    contenu: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    documents: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    images: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::boutique.boutique'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'titre'> &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 80;
+      }>;
+    titre: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiClubClub extends Struct.SingleTypeSchema {
   collectionName: 'clubs';
   info: {
@@ -1226,6 +1267,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::accueil.accueil': ApiAccueilAccueil;
+      'api::boutique.boutique': ApiBoutiqueBoutique;
       'api::club.club': ApiClubClub;
       'api::competition.competition': ApiCompetitionCompetition;
       'api::galerie.galerie': ApiGalerieGalerie;
